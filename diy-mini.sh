@@ -68,14 +68,14 @@ function git_sparse_clone() {
 # merge_package master https://github.com/coolsnowwolf/luci feeds/luci/themes themes/luci-theme-design
 
 # 更改 Argon 主题背景
-rm -rf feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/background/*
+# rm -rf feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/background/*
 # cp -f $GITHUB_WORKSPACE/images/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 # mkdir -p package/luci-theme-argon/htdocs/luci-static/argon/img
 # cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # iStore
-git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
-git_sparse_clone main https://github.com/linkease/istore luci
+# git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
+# git_sparse_clone main https://github.com/linkease/istore luci
 
 # 在线用户
 git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
