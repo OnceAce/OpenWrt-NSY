@@ -89,7 +89,7 @@ jobs:
         #df -hT $GITHUB_WORKSPACE
         df -hT
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        git clone $REPO_URL -b main openwrt_bak
+        git clone $REPO_URL_COPY -b main openwrt_bak
         cp -f openwrt_bak/target/linux/rockchip/patches-6.6/9999* openwrt/target/linux/rockchip/patches-6.12/
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
