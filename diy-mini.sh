@@ -149,8 +149,8 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/armv8.mk
 
 
 # 加入初始化交换机脚本
-cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
-chmod 755 package/base-files/files/etc/init.d/swconfig_install
+# cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
+# chmod 755 package/base-files/files/etc/init.d/swconfig_install
 
 
 cp -f $GITHUB_WORKSPACE/configfiles/dts/rk3568-nsy-g68-plus.dts target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-nsy-g68-plus.dts
