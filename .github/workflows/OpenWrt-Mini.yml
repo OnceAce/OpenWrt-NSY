@@ -118,7 +118,7 @@ jobs:
         cd $OPENWRT_PATH
         # cp -rf $GITHUB_WORKSPACE/patches-6.6/* target/linux/rockchip/patches-6.12/
         cp -rf $GITHUB_WORKSPACE/patches-6.6/100-* target/linux/rockchip/patches-6.12/
-        cp -rf $OPENWRT_PATH_BAK/target/linux/generic/files/drivers/net/phy/rtl8367b.c $OPENWRT_PATH/target/linux/generic/files/drivers/net/phy 
+        cp -rf $OPENWRT_PATH_BAK/target/linux/generic/files/drivers/net/phy/rtl8367b.c target/linux/generic/files/drivers/net/phy/ 
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
         echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
