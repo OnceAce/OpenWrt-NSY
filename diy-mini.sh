@@ -135,15 +135,14 @@ cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/armv8/base-
 grep -q 'seewo_sv21 \\$' package/boot/uboot-rockchip/Makefile && sed -i "s/seewo_sv21 \\\\/seewo_sv21 \\\\\n    nsy_g68-plus \\\\\n    nsy_g16-plus \\\\\n    bdy_g18-pro \\\\/g" package/boot/uboot-rockchip/Makefile || sed -i "s/seewo_sv21/seewo_sv21 \\\\\n    nsy_g68-plus \\\\\n    nsy_g16-plus \\\\\n    bdy_g18-pro/g" package/boot/uboot-rockchip/Makefile
 
 
-echo -e "\\ndefine Device/nsy_g68-plus
+echo -e "define Device/nsy_g68-plus
   DEVICE_VENDOR := NSY
-  DEVICE_MODEL := G68
+  DEVICE_MODEL := G68-PLUS
   SOC := rk3568
   DEVICE_DTS := rockchip/rk3568-nsy-g68-plus
-  SUPPORTED_DEVICES := nsy,g68-plus
-  UBOOT_DEVICE_NAME := generic-rk3568
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig kmod-mt7916-firmware
+  UBOOT_DEVICE_NAME := nsy-g68-plus-rk3568
+  BOOT_FLOW := pine64-img
+  DEVICE_PACKAGES := kmod-mt7916-firmware kmod-switch-rtl8367b wpad-openssl
 endef
 TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/armv8.mk
 
