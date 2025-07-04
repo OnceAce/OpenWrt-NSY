@@ -93,7 +93,6 @@ jobs:
         df -hT
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         git clone $REPO_URL_COPY -b main openwrt_bak
-        cp -rf $GITHUB_WORKSPACE/patches-6.6/* openwrt/target/linux/rockchip/patches-6.12/
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         COMMIT_AUTHOR=$(git show -s --date=short --format="作者: %an")
@@ -114,6 +113,8 @@ jobs:
       run: |
         df -hT
         cp $CONFIG_FILE $OPENWRT_PATH/.config
+        # cp -rf $GITHUB_WORKSPACE/patches-6.6/* openwrt/target/linux/rockchip/patches-6.12/
+        cp -rf $GITHUB_WORKSPACE/patches-6.6/100-* openwrt/target/linux/rockchip/patches-6.12/
         cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
