@@ -115,8 +115,8 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 # sed -i -E 's/KERNEL_PATCHVER:=[0-9]+\.[0-9]+/KERNEL_PATCHVER:=5.15/' target/linux/rockchip/Makefile
 # sed -i -E 's/KERNEL_TESTING_PATCHVER:=[0-9]+\.[0-9]+/KERNEL_TESTING_PATCHVER:=5.15/' target/linux/rockchip/Makefile
 
-rm -f feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal/terminal.htm
-wget -P feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal https://xiaomeng9597.github.io/terminal.htm
+# rm -f feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal/terminal.htm
+# wget -P feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal https://xiaomeng9597.github.io/terminal.htm
 
 #集成CPU性能跑分脚本
 # cp -a $GITHUB_WORKSPACE/configfiles/coremark/* package/base-files/files/bin/
@@ -142,7 +142,7 @@ echo -e "define Device/nsy_g68-plus
   DEVICE_DTS := rockchip/rk3568-nsy-g68-plus
   UBOOT_DEVICE_NAME := nsy-g68-plus-rk3568
   BOOT_FLOW := pine64-img
-  DEVICE_PACKAGES := kmod-mt7916-firmware kmod-switch-rtl8367b wpad-openssl
+  DEVICE_PACKAGES := kmod-mt7916-firmware wpad-openssl #kmod-switch-rtl8367b
   # DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig kmod-mt7916-firmware
 endef
 TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/armv8.mk
